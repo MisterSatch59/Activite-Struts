@@ -14,7 +14,8 @@ import org.example.palabres.model.bean.utilisateur.Utilisateur;
 public class Message {
 
     /** Logger pour la classe */
-    private static final Log LOGGER = LogFactory.getLog(Message.class);
+    @SuppressWarnings("unused")
+	private static final Log LOGGER = LogFactory.getLog(Message.class);
 
 
     // ==================== Attributs ====================

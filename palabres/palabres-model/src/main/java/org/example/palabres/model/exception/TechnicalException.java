@@ -7,7 +7,10 @@ package org.example.palabres.model.exception;
  */
 public class TechnicalException extends Exception {
 
-    /**
+	private static final long serialVersionUID = 1L;
+
+
+	/**
      * Constructeur.
      *
      * @param pMessage -

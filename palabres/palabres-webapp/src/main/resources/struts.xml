@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<!-- Action par défaut -->
+		<default-action-ref name="index" />
+
+		<!-- Results globaux -->
+		<global-results>
+			<result name="error">/jsp/error.jsp</result>
+		</global-results>
+
+		<!-- Action "index" -->
+		<action name="index">
+			<result>/jsp/index.jsp</result>
+		</action>
+
+		<!-- Actions Login/Logout -->
+		<action name="login" class="org.example.palabres.webapp.action.LoginAction" method="doLogin">
+			<result name="input">/jsp/login.jsp</result>
+			<result name="success" type="redirectAction">index</result>
+		</action>
+		<action name="logout" class="org.example.palabres.webapp.action.LoginAction" method="doLogout">
+			<result type="redirectAction">index</result>
+		</action>
+	
+		<!-- Action listant les channels -->
+		<action name="listChannel" class="org.example.palabres.webapp.action.ChannelAction" method="doList">
+			<result>/jsp/channel/list.jsp</result>
+		</action>
+	
+		<!-- Action créant un channel -->
+		<action name="createChannel" class="org.example.palabres.webapp.action.ChannelAction" method="doCreate">
+			<result name="input">/jsp/channel/creation.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">messagesChannel</param>
+				<param name="channelName">${channelName}</param>
+			</result>
+		</action>
+	
+		<!-- Action affichant le liste des messages d'un Channel -->
+		<action name="messagesChannel" class="org.example.palabres.webapp.action.AfficherChannelAction" method="doListMessage">
+			<result>/jsp/channel/messages.jsp</result>
+		</action>
+	</package>
+</struts>
