@@ -9,18 +9,18 @@
 
 		<!-- Results globaux -->
 		<global-results>
-			<result name="error">/jsp/error.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
 		</global-results>
 
 		<!-- Action "index" -->
 		<action name="index">
-			<result>/jsp/index.jsp</result>
+			<result>index.jsp</result>
 		</action>
 
 		<!-- Actions Login/Logout -->
 		<action name="login" class="org.example.palabres.webapp.action.LoginAction" method="doLogin">
-			<result name="input">/jsp/login.jsp</result>
-			<result name="success" type="redirectAction">index</result>
+			<result name="input">/WEB-INF/jsp/login.jsp</result>
+			<result name="success" type="redirectAction">listChannel</result>
 		</action>
 		<action name="logout" class="org.example.palabres.webapp.action.LoginAction" method="doLogout">
 			<result type="redirectAction">index</result>
@@ -28,12 +28,12 @@
 	
 		<!-- Action listant les channels -->
 		<action name="listChannel" class="org.example.palabres.webapp.action.ChannelAction" method="doList">
-			<result>/jsp/channel/list.jsp</result>
+			<result>/WEB-INF/jsp/channel/list.jsp</result>
 		</action>
 	
 		<!-- Action créant un channel -->
 		<action name="createChannel" class="org.example.palabres.webapp.action.ChannelAction" method="doCreate">
-			<result name="input">/jsp/channel/creation.jsp</result>
+			<result name="input">/WEB-INF/jsp/channel/creation.jsp</result>
 			<result name="success" type="redirectAction">
 				<param name="actionName">messagesChannel</param>
 				<param name="channelName">${channelName}</param>
@@ -42,7 +42,7 @@
 	
 		<!-- Action affichant le liste des messages d'un Channel -->
 		<action name="messagesChannel" class="org.example.palabres.webapp.action.AfficherChannelAction" method="doListMessage">
-			<result>/jsp/channel/messages.jsp</result>
+			<result>/WEB-INF/jsp/channel/messages.jsp</result>
 		</action>
 	</package>
 </struts>
