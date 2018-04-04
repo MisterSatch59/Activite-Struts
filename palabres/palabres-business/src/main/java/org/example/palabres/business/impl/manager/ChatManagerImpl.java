@@ -32,8 +32,7 @@ public class ChatManagerImpl extends AbstractManager implements ChatManager {
     /** Logger pour la classe */
     private static final Log LOGGER = LogFactory.getLog(ChatManagerImpl.class);
 
-    @SuppressWarnings("unused")
-	@Inject
+    @Inject
     private UtilisateurManager utilisateurManager;
 
     @Inject

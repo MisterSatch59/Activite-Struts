@@ -10,6 +10,7 @@
 			<div>
 				<ul class="nav navbar-nav">
 					<s:if test="#session.user">
+						<li><s:a action="listChannel">Channels</s:a></li>
 						<li><a class="inactive">Utilisateur connecté : <s:property value="#session.user.pseudo" /></a></li>
 						<li><s:a action="logout"><s:text name="header.deconn" /></s:a></li>
 					</s:if>

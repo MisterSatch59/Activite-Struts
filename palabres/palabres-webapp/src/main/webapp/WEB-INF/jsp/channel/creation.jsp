@@ -25,7 +25,7 @@
 	
 					<div class="form-group">
 						<div class="col-md-offset-4 col-md-4">
-							<s:submit id="singlebutton" name="singlebutton" class="btn btn-primary" key="creation.validate" />
+							<s:submit class="btn btn-primary" value="Valider" />
 						</div>
 					</div>
 				</fieldset>

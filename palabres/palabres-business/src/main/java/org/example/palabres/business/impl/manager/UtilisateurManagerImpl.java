@@ -23,8 +23,7 @@ import org.example.palabres.model.exception.NotFoundException;
 public class UtilisateurManagerImpl extends AbstractManager implements UtilisateurManager {
 
     /** Logger pour la classe */
-    @SuppressWarnings("unused")
-	private static final Log LOGGER = LogFactory.getLog(UtilisateurManagerImpl.class);
+    private static final Log LOGGER = LogFactory.getLog(UtilisateurManagerImpl.class);
 
     @Inject
     @Named("refListUtilisateur")
