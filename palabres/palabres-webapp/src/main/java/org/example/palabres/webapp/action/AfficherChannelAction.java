@@ -96,6 +96,7 @@ public class AfficherChannelAction extends ActionSupport implements SessionAware
 		String vResult = ActionSupport.SUCCESS;
 		try {
 			Channel channel = managerFactory.getChatManager().getChannel(channelName);
+			System.out.println("-----------------------------------------------------------channelActualLengh : "+channelActualLengh);
 			listMessage = managerFactory.getChatManager().getListNewMessage(channel, channelActualLengh-1);
 		} catch (NotFoundException | TechnicalException e) {
 			this.addActionError(e.getMessage());
@@ -110,8 +111,6 @@ public class AfficherChannelAction extends ActionSupport implements SessionAware
 	 */
 	public String doAjaxEnvoyerMessage() {
 		String vResult = ActionSupport.SUCCESS;
-		System.out.println(
-				"-----------------------------------------------------------------------------------------------Message : "+ message);
 		try {
 			Channel channel;
 			channel = managerFactory.getChatManager().getChannel(channelName);

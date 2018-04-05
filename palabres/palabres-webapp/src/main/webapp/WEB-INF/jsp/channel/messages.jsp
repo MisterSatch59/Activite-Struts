@@ -7,7 +7,7 @@
 		<%@ include file="../_include/head.jsp"%>
 	</head>
 
-	<body class="corps container" onload="auto()">
+	<body class="corps container" onload="init()">
 		<%@ include file="../_include/header.jsp"%>
 
 		<div class="jumbotron">
@@ -16,14 +16,21 @@
 					<s:property value="channelName" />
 				</h2>
 
-				<table id="listMessages" class="table-bordered table-striped table-condensed col-xs-12">
-
+				<table class="table-bordered table-striped table-condensed col-xs-12">
+					<thead>
+						<tr>
+							<th class="active"></th>
+							<th class="active text-center">Messages</th>
+						</tr>
+					</thead>
+					<tbody id="listMessages">
+					</tbody>
 				</table>
 			</div>
 
 			<div class="row">
-				<input name="newMessage" type="text" placeholder="Message..." class="input-md col-md-10"/>
-				<button onclick="sendMessage()" class="btn btn-primary col-md-2"> <s:text name="messages.send" /></button>
+				<input name="newMessage" type="text" placeholder="Message..." class="input-md col-xs-10"/>
+				<button onclick="sendMessage()" class="btn btn-primary col-xs-2"> <s:text name="messages.send" /></button>
 			</div>
 
 			
@@ -42,6 +49,12 @@
 		
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script>
+			function init(){
+				//var $listMessages = jQuery("#listMessages");
+				//$listMessages.empty();
+				auto();
+			}
+		
 			function auto(){
 				if( $("input[name=autoRefresh]").is(":checked") ){
 					reloadListMessages();
@@ -68,12 +81,12 @@
 						var $listMessages = jQuery("#listMessages");
 						jQuery.each(data, function (key, val) {
 							$listMessages.append(
-								jQuery("<tr><td>")
-								.append(val.author.pseudo)
-								.append("</td><td>")
-								.append(val.message)
-								.append("</td></tr>")
-							);
+									jQuery("<tr>").append(
+											jQuery("<td>").append(val.author.pseudo)
+											).append(
+													jQuery("<td>").append(val.message)
+													)
+									);
 						});
 					}
 				)
@@ -102,12 +115,12 @@
 						var $listMessages = jQuery("#listMessages");
 						jQuery.each(data, function (key, val) {
 							$listMessages.append(
-								jQuery("<tr><td>")
-								.append(val.author.pseudo)
-								.append("</td><td>")
-								.append(val.message)
-								.append("</td></tr>")
-							);
+									jQuery("<tr>").append(
+											jQuery("<td>").append(val.author.pseudo)
+											).append(
+													jQuery("<td>").append(val.message)
+													)
+									);
 						});
 					}
 				)
